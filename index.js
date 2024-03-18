@@ -41,7 +41,7 @@ class Logo {
                 type: 'list',
                 name: 'shape',
                 message: 'Please select a shape:',
-                choices: ['Circle', 'Square', 'Triangle']
+                choices: ['Circle', 'Triangle', 'Square']
             },
             {
                 type: 'input',
@@ -58,6 +58,29 @@ class Logo {
         ]
         return await inquirer.prompt(questions);
     };
+    // Function to generate SVG markup
+    generateSVG() {
+        this.textColor = this.answers[`text-color`];
+        this.shapeColor = this.answers['shape-color'];
+        return
+        `<svg width="200" height="200">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="60" fill="${this.textColor}">${this.text}</text>
+            ${this.shape === 'Circle' ? `<circle cx="100" cy="100" r="50" fill="${this.shapeColor}" />` : ''}
+            ${this.shape === 'Triangle' ? `<polygon points="50,15 100,100 0,100" fill="${this.shapeColor}" />` : ''}
+            ${this.shape === 'Square' ? `<rect x="50" y="50" width="100" height="100" fill="${this.shapeColor}" />` : ''}
+        </svg>`;
+    }
+    // Function to write SVG file
+    writeSVG() {
+        const markup = this.generateSVG();
+        fs.writeToFile('logo', markup, (err) => {
+            if (err) {
+                console.error('Error writing SVG file:', err);
+            } else {
+                console.log(`SVG file saved as ${'logo'}`)
+            }
+        })
+    }
 };
 
 // Create new instance of logo class and call method to get user input

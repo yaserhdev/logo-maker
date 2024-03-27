@@ -48,4 +48,4 @@ THEN I am shown a 300x200 pixel image that matches the criteria I entered
 
 Application available for download at: https://github.com/yaserhdev/logo-maker
 
-Demo video of application available at: 
+Demo video of application available at: https://youtu.be/q6n9k2Qw5xI

@@ -61,6 +61,7 @@ logoPrompt().then((answers) => {
         const circle = new Circle(answers.text, answers.textColor, answers.shapeColor);
         try {
             fs.writeFileSync('./examples/circle.svg', circle.render());
+            console.log(`Successfully created circle.svg in the /examples directory!`);
         } catch (err) {
             console.error('Error writing SVG file:', err);
         }
@@ -68,6 +69,7 @@ logoPrompt().then((answers) => {
         const triangle = new Triangle(answers.text, answers.textColor, answers.shapeColor);
         try {
             fs.writeFileSync('./examples/triangle.svg', triangle.render());
+            console.log(`Successfully created triangle.svg in the /examples directory!`);
         } catch (err) {
             console.log('Error writing SVG file:', err)
         }
@@ -75,6 +77,7 @@ logoPrompt().then((answers) => {
         const square = new Square(answers.text, answers.textColor, answers.shapeColor);
         try {
             fs.writeFileSync('./examples/square.svg', square.render());
+            console.log(`Successfully created square.svg in the /examples directory!`);
         } catch (err) {
             console.log('Error writing SVG file:', err)
         }
